@@ -1,0 +1,5 @@
+storage/**
+!storage/.env.example
+.idea/
+.venv/
+__pycache__/
