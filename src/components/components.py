@@ -14,8 +14,8 @@ def c_text_field(label: str = "", **kwargs) -> ft.TextField:
     return ft.TextField(label=label, **{**filed_args, **kwargs})
 
 
-def c_elevated_button(text: str = "", **kwargs) -> ft.ElevatedButton:
-    return ft.ElevatedButton(text=text, **{**e_button_args, **kwargs})
+def c_elevated_button(text: str = "", on_click=None, **kwargs) -> ft.ElevatedButton:
+    return ft.ElevatedButton(text=text, on_click=on_click, **{**e_button_args, **kwargs})
 
 
 def create_table(titles: list, datas: list[list]) -> ft.DataTable:

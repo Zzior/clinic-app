@@ -1,11 +1,18 @@
 from dataclasses import dataclass
+from enum import Enum
 
-from src.services.enums import AccessLevel
+
+class AccessLevel(Enum):
+    ADMIN = 1
+    DOCTOR = 2
+    USER = 3
 
 
 @dataclass
 class SessionInfo:
     access_level: AccessLevel
+    login: str
 
-    db_id: int
-    full_name: str
+    db_id: int = None
+    name: str = None
+

@@ -23,6 +23,7 @@ class Doctor(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String)
+    phone = Column(String)
     specialization = Column(String)
     office_number = Column(String)
 
@@ -109,6 +110,7 @@ class ClinicDatabase:
         session.close()
 
     def get_appointment(self, doctor_id=None, patient_id=None, diagnosis_filter=None, specialization=None):
+
         session = self.Session()
         query = session.query(Appointment)
         if doctor_id is not None:
@@ -129,15 +131,15 @@ class ClinicDatabase:
         session.close()
         return results
 
-    def get_doctor(self, doctor_id):
+    def get_doctor(self, phone):
         session = self.Session()
-        doctor = session.query(Doctor).filter(Doctor.id == doctor_id).first()
+        doctor = session.query(Doctor).filter(Doctor.phone == phone).first()
         session.close()
         return doctor
 
-    def get_patient(self, patient_id):
+    def get_patient(self, phone):
         session = self.Session()
-        patient = session.query(Patient).filter(Patient.id == patient_id).first()
+        patient = session.query(Patient).filter(Patient.phone == phone).first()
         session.close()
         return patient
 

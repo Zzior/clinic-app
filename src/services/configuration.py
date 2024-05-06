@@ -3,6 +3,7 @@ from pathlib import Path
 from dataclasses import dataclass
 
 # Data access (With Save configs)
+from src.services.authentication import AuthenticationService
 from src.services.database import ClinicDatabase
 from src.services.data_classes import AccessLevel
 
@@ -12,15 +13,17 @@ app_dir: Path = Path(__file__).parent.parent.parent
 @dataclass
 class Configuration:
     """All in one configuration's class."""
-    # Session {"page.session_id": {"name": "user_name", ...}}
-    sessions: dict[str, AccessLevel]
 
     app_dir = app_dir
     configs_dir = app_dir / "storage"
-    database_dir = configs_dir / "users.db"
+    configs_dir.mkdir(exist_ok=True, parents=True)
 
-    # Services
-    database = ClinicDatabase(database_dir)
+    # Data access (With Save configs)
+    # Session {"page.session_id": AccessLevel}
+    sessions: dict[str, AccessLevel]
+
+    database = ClinicDatabase(configs_dir / "users.db")
+    authentication: AuthenticationService = AuthenticationService(configs_dir / "authentication.json")
 
 
 conf = Configuration(sessions={})
