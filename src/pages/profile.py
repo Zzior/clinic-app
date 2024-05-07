@@ -35,6 +35,7 @@ def profile_page(page: ft.Page) -> ft.View:
             controls=[
                 c_text(clinic_name, size=20),
                 ft.Row([ft.Icon(ft.icons.PERSON), ft.Text(info.name)]),
+                ft.Row([ft.Icon(ft.icons.PHONE), ft.Text(info.login)]),
                 ft.ElevatedButton(text="Выйти", on_click=log_out, icon=ft.icons.LOGOUT),
                 c_text(about, size=14),
                 c_text(phone, size=14),

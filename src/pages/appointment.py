@@ -16,17 +16,32 @@ def appointment_page(page: ft.Page):
         name = c_text(value=info.name, size=18)
         make_text = c_text(value="Записаться на приём", size=16)
         complaints_text = c_text_field(label="Жалоба", max_lines=6, multiline=True, width=400)
-        send_button = c_elevated_button(text="Отправить запрос", width=200)
-
         specializations = [ft.dropdown.Option(s) for s in specialization_list]
         spec_dropdown = ft.Dropdown(
             options=list(specializations),
             label="Выберите направление",
             width=400
         )
+        error_info = c_text(value="", color="red", visible=False)
+
+        def send_appointment(e: ft.ControlEvent):
+            if len(complaints_text.value) > 3 and spec_dropdown.value:
+                conf.database.add_appointment(
+                    patient_id=info.db_id, complaints=complaints_text.value, specialization=spec_dropdown.value
+                )
+                complaints_text.value = ""
+                spec_dropdown.value = None
+                error_info.visible = False
+                page.go("/history")
+
+            else:
+                error_info.value = "Заполните поля"
+                error_info.visible = True
+
+        send_button = c_elevated_button(text="Отправить запрос", width=200, on_click=send_appointment)
 
         make_appointment = ft.Column(
-            controls=[name, make_text, complaints_text, spec_dropdown, send_button],
+            controls=[name, make_text, complaints_text, spec_dropdown, error_info, send_button],
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
             alignment=ft.MainAxisAlignment.CENTER,
             adaptive=True

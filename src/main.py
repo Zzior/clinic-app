@@ -2,8 +2,9 @@ import flet as ft
 
 from pages.profile import profile_page
 from pages.appointment import appointment_page
+from pages.history import history_page
 
-pages = {"/": profile_page, "/appointment": appointment_page}
+pages = {"/": profile_page, "/appointment": appointment_page, "/history": history_page}
 
 
 def main(page: ft.Page):
