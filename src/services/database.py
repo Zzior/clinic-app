@@ -155,6 +155,9 @@ class ClinicDatabase:
         elif p_id is not None:
             query = query.filter(Patient.id == p_id).first()
 
+        else:
+            query = query.all()
+
         results = query
         session.close()
         return results

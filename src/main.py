@@ -1,10 +1,11 @@
+from pathlib import Path
 import flet as ft
+import sys
 
-from pages.profile import profile_page
-from pages.appointment import appointment_page
-from pages.history import history_page
-from pages.admin_doctors import admin_doctors_page
-from pages.doctor_accept import doctor_accept_page
+sys.path.append(str(Path(__file__).parent.parent))
+
+from src.pages import profile_page, appointment_page, history_page, admin_doctors_page, doctor_accept_page
+
 
 pages = {
     "/": profile_page, "/appointment": appointment_page, "/history": history_page,
@@ -43,4 +44,4 @@ def main(page: ft.Page):
     page.go(page.route)
 
 
-ft.app(target=main, view=ft.AppView.WEB_BROWSER)
+ft.app(target=main)

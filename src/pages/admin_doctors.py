@@ -104,7 +104,7 @@ def admin_doctors_page(page: ft.Page):
 
     else:
         page.go("/")
-        all_controls = ft.Text("Выполните вход")
+        all_controls = c_text("Выполните вход")
 
     return ft.View(
         route="/admin/doctors",

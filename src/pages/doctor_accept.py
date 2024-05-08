@@ -50,7 +50,7 @@ def doctor_accept_page(page: ft.Page):
                     appointment_id=appointments_list[index].id, doctor_id=info.db_id, new_diagnosis=diagnosis_f.value
                 )
 
-                e.control.page.snack_bar = ft.SnackBar(ft.Text(f"Добавлен"))
+                e.control.page.snack_bar = ft.SnackBar(c_text(f"Добавлен"))
                 e.control.page.snack_bar.open = True
 
                 for variable in [complaints_text, diagnosis_f, appointments_dropdown]:
@@ -80,7 +80,7 @@ def doctor_accept_page(page: ft.Page):
 
     else:
         page.go("/")
-        all_controls = ft.Text("Выполните вход")
+        all_controls = c_text("Выполните вход")
 
     return ft.View(
         route="/doctor/accept",

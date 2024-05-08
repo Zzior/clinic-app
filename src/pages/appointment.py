@@ -49,7 +49,7 @@ def appointment_page(page: ft.Page):
 
     else:
         page.go("/")
-        make_appointment = ft.Text("Выполните вход")
+        make_appointment = c_text("Выполните вход")
 
     return ft.View(
         route="/appointment",

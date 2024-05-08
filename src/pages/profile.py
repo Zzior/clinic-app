@@ -34,9 +34,9 @@ def profile_page(page: ft.Page) -> ft.View:
         authenticated_columns = ft.Column(
             controls=[
                 c_text(clinic_name, size=20),
-                ft.Row([ft.Icon(ft.icons.PERSON), ft.Text(info.name)]),
-                ft.Row([ft.Icon(ft.icons.PHONE), ft.Text(info.login)]),
-                ft.ElevatedButton(text="Выйти", on_click=log_out, icon=ft.icons.LOGOUT),
+                ft.Row([ft.Icon(ft.icons.PERSON), c_text(info.name)]),
+                ft.Row([ft.Icon(ft.icons.PHONE), c_text(info.login)]),
+                c_elevated_button(text="Выйти", on_click=log_out, icon=ft.icons.LOGOUT),
                 c_text(about, size=14),
                 c_text(phone, size=14),
                 c_text(address, size=14)
@@ -111,11 +111,20 @@ def profile_page(page: ft.Page) -> ft.View:
 
             page.update()
 
-            session_info = conf.authentication.register_user(
-                access_level=AccessLevel.USER, login=phone_f.value, password=pass_f.value
-            )
+            if conf.database.get_patient():
+                session_info = conf.authentication.register_user(
+                    access_level=AccessLevel.USER, login=phone_f.value, password=pass_f.value
+                )
+            else:
+                session_info = conf.authentication.register_user(
+                    access_level=AccessLevel.ADMIN, login=phone_f.value, password=pass_f.value
+                )
+
             if session_info:
-                page.go("/appointment")
+                if session_info.access_level == AccessLevel.ADMIN:
+                    page.go("/admin/doctors")
+                else:
+                    page.go("/appointment")
                 conf.sessions[page.session_id] = session_info
                 conf.database.add_patient(name=name_f.value, phone=phone_f.value)
                 db_info = conf.database.get_patient(phone=phone_f.value)
@@ -145,7 +154,7 @@ def profile_page(page: ft.Page) -> ft.View:
             selected_index=0,
             thumb_color=ft.colors.BLUE_400,
             on_change=change_mode,
-            controls=[ft.Text("Вход"), ft.Text("Регистрация")],
+            controls=[c_text("Вход"), c_text("Регистрация")],
             height=50,
             width=265
         )
