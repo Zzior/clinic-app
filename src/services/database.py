@@ -68,9 +68,9 @@ class ClinicDatabase:
             session.commit()
         session.close()
 
-    def add_doctor(self, name, specialization, office_number):
+    def add_doctor(self, name, phone, specialization, office_number):
         session = self.Session()
-        new_doctor = Doctor(name=name, specialization=specialization, office_number=office_number)
+        new_doctor = Doctor(name=name, phone=phone, specialization=specialization, office_number=office_number)
         session.add(new_doctor)
         session.commit()
         session.close()
@@ -131,9 +131,13 @@ class ClinicDatabase:
         session.close()
         return results
 
-    def get_doctor(self, phone):
+    def get_doctor(self, phone = None):
         session = self.Session()
-        doctor = session.query(Doctor).filter(Doctor.phone == phone).first()
+        if phone is not None:
+            doctor = session.query(Doctor).filter(Doctor.phone == phone).first()
+        else:
+            doctor = session.query(Doctor)
+
         session.close()
         return doctor
 

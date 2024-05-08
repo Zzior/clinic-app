@@ -3,7 +3,7 @@ import flet as ft
 from src.components.components import c_text, c_text_field, c_elevated_button
 from src.static.static_data import specialization_list
 
-from src.components.navigation import navigation_bar
+from src.components.navigation import user_navigation_bar
 from src.services.configuration import conf
 
 
@@ -55,6 +55,6 @@ def appointment_page(page: ft.Page):
         route="/appointment",
         controls=[ft.Row([make_appointment], alignment=ft.MainAxisAlignment.CENTER)],
         vertical_alignment=ft.MainAxisAlignment.CENTER,
-        navigation_bar=navigation_bar
+        navigation_bar=user_navigation_bar
     )
 

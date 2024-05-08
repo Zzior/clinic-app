@@ -5,7 +5,7 @@ from src.static.static_data import clinic_name, about, phone, address
 from src.services.configuration import conf
 
 from src.services.data_classes import SessionInfo, AccessLevel
-from src.components.navigation import navigation_bar
+from src.components.navigation import user_navigation_bar, admin_navigation_bar
 
 
 def profile_page(page: ft.Page) -> ft.View:
@@ -48,7 +48,11 @@ def profile_page(page: ft.Page) -> ft.View:
         result_controls.append(
             ft.Row(controls=[authenticated_columns, img], alignment=ft.MainAxisAlignment.SPACE_EVENLY, adaptive=True)
         )
-        navigation_menu = navigation_bar
+        if conf.sessions[page.session_id].access_level == AccessLevel.USER:
+            navigation_menu = user_navigation_bar
+
+        elif conf.sessions[page.session_id].access_level == AccessLevel.ADMIN:
+            navigation_menu = admin_navigation_bar
 
     else:
         # global
@@ -77,13 +81,14 @@ def profile_page(page: ft.Page) -> ft.View:
                 page.go("/appointment")
 
             elif session_info.access_level == AccessLevel.DOCTOR:
-                user_info = conf.database.get_doctor(phone=phone_f.value)
-                session_info.db_id = user_info.id
-                session_info.name = user_info.name
+                doctor_info = conf.database.get_doctor(phone=phone_f.value)
+                session_info.db_id = doctor_info.id
+                session_info.name = doctor_info.name
                 page.go("/doctor")
 
             elif session_info.access_level == AccessLevel.ADMIN:
-                page.go("/admin")
+                session_info.name = "Администратор"
+                page.go("/admin/doctors")
 
             if session_info:
                 conf.sessions[page.session_id] = session_info

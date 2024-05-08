@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-05-06T11:24:14.344Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="Yu8oaw8whIG_le4Cr9Ze" version="24.3.1" type="device">
+<mxfile host="app.diagrams.net" modified="2024-05-07T09:02:57.352Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="aMtjY1Ln9YnvnO_gblAq" version="24.3.1" type="device">
   <diagram name="Страница — 1" id="aDIVhNk7xBenF-qleNfE">
-    <mxGraphModel dx="1111" dy="573" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1112" dy="573" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -43,7 +43,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="tMkzgtcxENnpK8aPp_Dj-8" value="Врачи" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="640" y="40" width="160" height="150" as="geometry" />
+          <mxGeometry x="640" y="40" width="160" height="180" as="geometry" />
         </mxCell>
         <mxCell id="tMkzgtcxENnpK8aPp_Dj-9" value="ID" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="tMkzgtcxENnpK8aPp_Dj-8" vertex="1">
           <mxGeometry y="30" width="160" height="30" as="geometry" />
@@ -51,11 +51,14 @@
         <mxCell id="tMkzgtcxENnpK8aPp_Dj-10" value="ФИО" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="tMkzgtcxENnpK8aPp_Dj-8" vertex="1">
           <mxGeometry y="60" width="160" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="tMkzgtcxENnpK8aPp_Dj-11" value="Специализация" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="tMkzgtcxENnpK8aPp_Dj-8" vertex="1">
+        <mxCell id="UP_gHXsmOlEs4ZkB6x4j-1" value="Телефон" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="tMkzgtcxENnpK8aPp_Dj-8" vertex="1">
           <mxGeometry y="90" width="160" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="tMkzgtcxENnpK8aPp_Dj-12" value="Кабинет" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="tMkzgtcxENnpK8aPp_Dj-8" vertex="1">
+        <mxCell id="tMkzgtcxENnpK8aPp_Dj-11" value="Специализация" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="tMkzgtcxENnpK8aPp_Dj-8" vertex="1">
           <mxGeometry y="120" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tMkzgtcxENnpK8aPp_Dj-12" value="Кабинет" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="tMkzgtcxENnpK8aPp_Dj-8" vertex="1">
+          <mxGeometry y="150" width="160" height="30" as="geometry" />
         </mxCell>
         <mxCell id="tMkzgtcxENnpK8aPp_Dj-13" value="Приёмы" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="320" y="40" width="160" height="240" as="geometry" />
@@ -80,9 +83,6 @@
         </mxCell>
         <mxCell id="tMkzgtcxENnpK8aPp_Dj-17" value="Выставленный диагноз" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="tMkzgtcxENnpK8aPp_Dj-13" vertex="1">
           <mxGeometry y="210" width="160" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="UP_gHXsmOlEs4ZkB6x4j-1" value="Телефон" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="50" y="140" width="160" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

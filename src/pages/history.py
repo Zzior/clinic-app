@@ -1,7 +1,7 @@
 import flet as ft
 
 from src.components.components import create_table, c_text
-from src.components.navigation import navigation_bar
+from src.components.navigation import user_navigation_bar
 
 from src.services.configuration import conf
 
@@ -28,7 +28,7 @@ def history_page(page: ft.Page):
             route="/history",
             controls=[ft.Row([table_info], alignment=ft.MainAxisAlignment.CENTER)],
             vertical_alignment=ft.MainAxisAlignment.CENTER,
-            navigation_bar=navigation_bar
+            navigation_bar=user_navigation_bar
         )
 
     else:
@@ -37,5 +37,5 @@ def history_page(page: ft.Page):
             route="/history",
             controls=[],
             vertical_alignment=ft.MainAxisAlignment.CENTER,
-            navigation_bar=navigation_bar
+            navigation_bar=user_navigation_bar
         )
