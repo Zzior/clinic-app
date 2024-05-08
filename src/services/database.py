@@ -131,19 +131,31 @@ class ClinicDatabase:
         session.close()
         return results
 
-    def get_doctor(self, phone = None):
+    def get_doctor(self, phone=None, doctor_id=None):
         session = self.Session()
         if phone is not None:
             doctor = session.query(Doctor).filter(Doctor.phone == phone).first()
+
+        elif doctor_id is not None:
+            doctor = session.query(Doctor).filter(Doctor.id == doctor_id).first()
+
         else:
             doctor = session.query(Doctor)
 
         session.close()
         return doctor
 
-    def get_patient(self, phone):
+    def get_patient(self, phone=None, p_id=None):
         session = self.Session()
-        patient = session.query(Patient).filter(Patient.phone == phone).first()
+        query = session.query(Patient)
+
+        if phone is not None:
+            query = query.filter(Patient.phone == phone).first()
+
+        elif p_id is not None:
+            query = query.filter(Patient.id == p_id).first()
+
+        results = query
         session.close()
-        return patient
+        return results
 

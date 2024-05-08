@@ -22,7 +22,7 @@ class Configuration:
     # Session {"page.session_id": SessionInfo}
     sessions: dict[str, SessionInfo]
 
-    database = ClinicDatabase(configs_dir / "users.db")
+    database = ClinicDatabase(configs_dir / "clinic.db")
     authentication: AuthenticationService = AuthenticationService(configs_dir / "authentication.json")
 
 

@@ -40,7 +40,8 @@ def admin_doctors_page(page: ft.Page):
                 )
                 if status:
                     conf.database.add_doctor(
-                        name=name_f.value, specialization=spec_dropdown.value, office_number=office_number_f.value
+                        name=name_f.value, specialization=spec_dropdown.value, office_number=office_number_f.value,
+                        phone=phone_f.value
                     )
 
                     e.control.page.snack_bar = ft.SnackBar(ft.Text(f"Добавлен"))

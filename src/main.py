@@ -4,10 +4,12 @@ from pages.profile import profile_page
 from pages.appointment import appointment_page
 from pages.history import history_page
 from pages.admin_doctors import admin_doctors_page
+from pages.doctor_accept import doctor_accept_page
 
 pages = {
     "/": profile_page, "/appointment": appointment_page, "/history": history_page,
-    "/admin/doctors": admin_doctors_page
+    "/admin/doctors": admin_doctors_page,
+    "/doctor/accept": doctor_accept_page
 }
 
 
